@@ -15,5 +15,3 @@ def hello(friend_name):
 
 
     
-
-
