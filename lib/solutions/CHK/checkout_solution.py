@@ -11,34 +11,44 @@ SKU = {
     "B": 30,
     "C": 20,
     "D": 15,
+    "E": 40,
 }
 
 SKU_SPECIAL = {
-    "A": (3, 30),
-    "B": (2, 15),
+    "A": (3, 5),
+    "B": (2),
+    "E": (2)
 }
+
+def calculate(sku_count):
+    """
+    Calculate total
+    """
+    total = 0
+
+
+    return total
+
+
 
 def checkout(skus):
     """
     Return price from sku
     """
     try:
-        # split skus amd sum
-        total = 0
-        special_count = {"A": 0, "B": 0} #FIXME
+        sku_count = {}
+        
+        # split skus
         for sku in skus:
-            if sku in SKU_SPECIAL:
-                special_count[sku] += 1
-                if(special_count[sku] % SKU_SPECIAL[sku][0] == 0):
-                    total += SKU_SPECIAL[sku][1]
-                else:
-                    total += SKU[sku]
+            if sku in SKU:
+                sku_count[sku] += 1
             else:
-                total += SKU[sku]
+                return -1
 
-        return total
+        return calculate(sku_count)
     except KeyError:
         # Add logger
         return -1
 
     
+
