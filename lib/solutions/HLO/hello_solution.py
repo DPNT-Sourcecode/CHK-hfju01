@@ -9,7 +9,11 @@ def hello(friend_name):
     if not isinstance(friend_name, str):
         return "Try again"
 
-    response =  f"Hello, {friend_name}!"
+    response = "Hello, " + friend_name + "!"
+    return response
 
-    return "??"
+
+
+    
+
 
