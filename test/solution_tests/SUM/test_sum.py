@@ -21,6 +21,3 @@ class TestSum():
         assert sum_solution.compute(101, 2) == None
         assert sum_solution.compute(1, 101) == None
         
-
-
-

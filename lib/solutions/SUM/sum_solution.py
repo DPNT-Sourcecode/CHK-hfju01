@@ -15,4 +15,3 @@ def compute(first_num, second_num):
         return
 
     return first_num + second_num
-
