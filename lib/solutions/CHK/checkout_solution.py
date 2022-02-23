@@ -13,7 +13,7 @@ SKU = {
 }
 
 SKU_PRICE_SPECIAL = {
-    "A": ((3, 20), (5, 50)),
+    "A": ((5, 50), (3, 20)),
     "B": ((2, 15)),
 }
 
@@ -40,7 +40,11 @@ def calculate(sku_count):
             ):
                 sku_count[SKU_ITEM_SPECIAL[sku][0]] += -1
 
-        
+        if sku in SKU_PRICE_SPECIAL:
+            
+        else:
+            total += SKU[sku]
+
 
     return total
 
@@ -65,6 +69,7 @@ def checkout(skus):
     except KeyError:
         # Add logger
         return -2
+
 
 
 
