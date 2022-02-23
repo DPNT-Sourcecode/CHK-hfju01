@@ -6,6 +6,6 @@ class TestSum():
         """
         Check success results.
         """
-        assert hello_solution.hello("test") == "test"
+        assert hello_solution.hello("test") == "Hello, World!"
         
         
