@@ -22,6 +22,3 @@ def compute(x, y):
         return
 
     return first_num + second_num
-
-
-
