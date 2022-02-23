@@ -6,8 +6,13 @@ class TestSum():
         assert sum_solution.compute(1, 2) == 3
 
     def test_invalid_input(self):
-        assert sum_solution.compute(-1, 2) == ""
+        assert sum_solution.compute(-1, 2) == None
+        assert sum_solution.compute("a", 2) == None
+        assert sum_solution.compute(10.3, 2) == None
+        assert sum_solution.compute(101, 2) == None
+        assert sum_solution.compute(1, 101) == None
         
 
         
+
 
