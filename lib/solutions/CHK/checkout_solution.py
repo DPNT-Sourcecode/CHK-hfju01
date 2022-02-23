@@ -25,16 +25,19 @@ SKU_ITEM_SPECIAL = {
 
 def calculate(sku_count):
     """
-    Calculate total
+    Calculate total = price - saving
 
-    1. reduce item
+    
     2. calculate special priced
     3. calculate normal price
     """
+    saving = 0
     total = 0
+
+    # count free item
     for sku in sku_count:
         if sku in SKU_ITEM_SPECIAL:
-
+            if()
 
 
     return total
@@ -63,3 +66,4 @@ def checkout(skus):
         return -2
 
     
+
