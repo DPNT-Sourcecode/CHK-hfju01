@@ -14,22 +14,26 @@ SKU = {
     "E": 40,
 }
 
-SKU_SPECIAL = {
-    "AAA": 130,
-    "AAAAA": 200,
-    "BB": 45,
-    "EEB": 80
+SKU_PRICE_SPECIAL = {
+    "A": ((3, 20), (5, 50)),
+    "B": ((2, 15)),
+}
+
+SKU_ITEM_SPECIAL = {
+    "E": (2, "B")
 }
 
 def calculate(sku_count):
     """
     Calculate total
+
+    1. reduce item
+    2. calculate special priced
+    3. calculate normal price
     """
     total = 0
     for sku in sku_count:
-        return SKU[sku]
-
-
+        if sku in SKU_ITEM_SPECIAL:
 
 
 
@@ -59,7 +63,3 @@ def checkout(skus):
         return -2
 
     
-
-
-
-
