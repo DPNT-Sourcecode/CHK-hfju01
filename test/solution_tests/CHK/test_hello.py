@@ -1,11 +1,26 @@
 from lib.solutions.CHK import checkout_solution
 
-
+"""
++------+-------+------------------------+
+| Item | Price | Special offers         |
++------+-------+------------------------+
+| A    | 50    | 3A for 130, 5A for 200 |
+| B    | 30    | 2B for 45              |
+| C    | 20    |                        |
+| D    | 15    |                        |
+| E    | 40    | 2E get one B free      |
++------+-------+------------------------+
+"""
 class TestSum():
     def test_checkout(self):
         """
         Check prices.
         """
+        assert checkout_solution.checkout("AAAAA") == 200
+        assert checkout_solution.checkout("AAAAAA") == 250
+        assert checkout_solution.checkout("EE") == 80
+        assert checkout_solution.checkout("EEB") == 80
+        assert checkout_solution.checkout("EEBB") == 110
         assert checkout_solution.checkout("A") == 50
         assert checkout_solution.checkout("AA") == 100
         assert checkout_solution.checkout("AAA") == 130
