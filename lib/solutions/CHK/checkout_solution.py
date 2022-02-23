@@ -1,5 +1,3 @@
-
-
 # noinspection PyUnusedLocal
 # skus = unicode string
 
@@ -19,29 +17,32 @@ SKU_PRICE_SPECIAL = {
     "B": ((2, 15)),
 }
 
-SKU_ITEM_SPECIAL = {
-    "E": (2, ("B", 1))
-}
+SKU_ITEM_SPECIAL = {"E": (2, ("B", 1))}
+
 
 def calculate(sku_count):
     """
     Calculate total = price - saving
 
-    
+
     2. calculate special priced
     3. calculate normal price
     """
-    saving = 0
     total = 0
 
     # count free item
     for sku in sku_count:
-        if sku in SKU_ITEM_SPECIAL:
-            
+        if sku in SKU_ITEM_SPECIAL and SKU_ITEM_SPECIAL[sku][1][0] in sku_count:
+            while (
+                sku_count[sku] >= SKU_ITEM_SPECIAL[sku][0]
+                and sku_count[SKU_ITEM_SPECIAL[sku][1][0]]
+                >= SKU_ITEM_SPECIAL[sku][1][0]
+            ):
+                sku_count[SKU_ITEM_SPECIAL[sku][0]] += -1
 
+        
 
     return total
-
 
 
 def checkout(skus):
@@ -50,7 +51,7 @@ def checkout(skus):
     """
     try:
         sku_count = {}
-        
+
         # split skus
         for sku in skus:
             if sku in SKU:
@@ -65,6 +66,5 @@ def checkout(skus):
         # Add logger
         return -2
 
-    
 
 
