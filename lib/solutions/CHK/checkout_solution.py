@@ -47,6 +47,8 @@ def checkout(skus):
         # split skus
         for sku in skus:
             if sku in SKU:
+                if not sku_count[sku]:
+                    sku_count[sku] = 0
                 sku_count[sku] += 1
             else:
                 return -1
@@ -54,8 +56,9 @@ def checkout(skus):
         return calculate(sku_count)
     except KeyError:
         # Add logger
-        return -1
+        return -2
 
     
+
 
 
