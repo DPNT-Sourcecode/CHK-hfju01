@@ -28,6 +28,7 @@ def calculate(sku_count):
     2. calculate special priced
     3. calculate normal price
     """
+    saving = 0
     total = 0
 
     # count free item
@@ -41,12 +42,15 @@ def calculate(sku_count):
                 sku_count[SKU_ITEM_SPECIAL[sku][0]] += -1
 
         if sku in SKU_PRICE_SPECIAL:
-            
-        else:
-            total += SKU[sku]
+            remaining_sku = sku_count[sku]
+            for special in SKU_PRICE_SPECIAL[sku]:
+                if remaining_sku > special[0]:
+                    saving += int(remaining_sku / special[0]) * SKU[sku]
+                    remaining_sku = remaining_sku % special[0]
+        
+        total += SKU[sku]
 
-
-    return total
+    return  total
 
 
 def checkout(skus):
@@ -69,6 +73,7 @@ def checkout(skus):
     except KeyError:
         # Add logger
         return -2
+
 
 
 
