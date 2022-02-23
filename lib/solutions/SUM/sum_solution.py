@@ -1,5 +1,5 @@
 # noinspection PyShadowingBuiltins,PyUnusedLocal
-def compute(x, y):
+def compute(first_num, second_num):
     """
     Return x + y.
 
@@ -7,18 +7,12 @@ def compute(x, y):
     param[1] = a positive integer between 0-100
     Return nothing if inputs are invalid
     """
-    try:
-        # Check type
-        first_num = int(x)
-        second_num = int(y)
+    # Check type
 
-        if first_num < 0 or first_num > 100:
-            return
-        if second_num < 0 or second_num > 100:
-            return
-
-    except ValueError:
-        # Logger
+    if not isinstance(first_num, int) or first_num < 0 or first_num > 100:
+        return
+    if not isinstance(second_num, int) or second_num < 0 or second_num > 100:
         return
 
     return first_num + second_num
+
