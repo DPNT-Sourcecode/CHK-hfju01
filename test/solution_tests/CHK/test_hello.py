@@ -13,10 +13,10 @@ class TestSum():
         assert checkout_solution.checkout("AAAAB") == 210
         assert checkout_solution.checkout("AABBAA") == 225
         assert checkout_solution.checkout("C") == 20
-        assert checkout_solution.checkout("CCD") == 65
+        assert checkout_solution.checkout("CCD") == 55
         assert checkout_solution.checkout("xB") == -1
         assert checkout_solution.checkout("test") == -1
+        assert checkout_solution.checkout("ABCa") == -1
         
 
         
-
