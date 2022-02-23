@@ -20,7 +20,7 @@ SKU_PRICE_SPECIAL = {
 }
 
 SKU_ITEM_SPECIAL = {
-    "E": (2, "B")
+    "E": (2, ("B", 1))
 }
 
 def calculate(sku_count):
@@ -37,7 +37,7 @@ def calculate(sku_count):
     # count free item
     for sku in sku_count:
         if sku in SKU_ITEM_SPECIAL:
-            if()
+            
 
 
     return total
@@ -66,4 +66,5 @@ def checkout(skus):
         return -2
 
     
+
 
