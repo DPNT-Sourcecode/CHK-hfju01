@@ -41,6 +41,7 @@ def calculate(sku_count):
             ):
                 sku_count[SKU_ITEM_SPECIAL[sku][0]] += -1
 
+    for sku in sku_count:
         if sku in SKU_PRICE_SPECIAL:
             remaining_sku = sku_count[sku]
             for special in SKU_PRICE_SPECIAL[sku]:
@@ -48,9 +49,10 @@ def calculate(sku_count):
                     saving += int(remaining_sku / special[0]) * SKU[sku]
                     remaining_sku = remaining_sku % special[0]
         
-        total += SKU[sku]
+    for sku in sku_count:
+        total += SKU[sku] * sku_count[sku]
 
-    return  total
+    return total - saving
 
 
 def checkout(skus):
@@ -73,6 +75,7 @@ def checkout(skus):
     except KeyError:
         # Add logger
         return -2
+
 
 
 
