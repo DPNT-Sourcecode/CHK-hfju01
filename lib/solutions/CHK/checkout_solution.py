@@ -15,9 +15,10 @@ SKU = {
 }
 
 SKU_SPECIAL = {
-    "A": (3, 5),
-    "B": (2),
-    "E": (2)
+    "AAA": 130,
+    "AAAAA": 200,
+    "BB": 45,
+    "EEB": 80
 }
 
 def calculate(sku_count):
@@ -25,6 +26,11 @@ def calculate(sku_count):
     Calculate total
     """
     total = 0
+    for sku in sku_count:
+        return SKU[sku]
+
+
+
 
 
     return total
@@ -51,4 +57,5 @@ def checkout(skus):
         return -1
 
     
+
 
