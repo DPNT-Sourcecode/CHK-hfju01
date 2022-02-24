@@ -61,8 +61,7 @@ def calculate(sku_count):
     Calculate total = price - saving
 
 
-    2. calculate special priced
-    3. calculate normal price
+    TODO: split function and unit test each
     """
     saving = 0
     total = 0
@@ -90,9 +89,12 @@ def calculate(sku_count):
                     remaining_sku = remaining_sku % special[0]
 
     # calculate group saving
+    offer_count = {}
     for sku in sku_count:
         for offer in SKU_GROUP_OFFER:
-
+            if sku in offer:
+                offer_count +=1
+            
 
     # Count price
     for sku in sku_count:
@@ -121,6 +123,7 @@ def checkout(skus):
     except ValueError:
         # Add logger
         return -1
+
 
 
 
