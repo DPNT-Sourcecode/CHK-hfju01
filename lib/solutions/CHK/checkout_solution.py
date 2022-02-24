@@ -96,7 +96,15 @@ def calculate(sku_count):
                 if offer not in offer_count:
                     offer_count[offer] = 0
                 offer_count[offer] +=1
+    for offer in offer_count:
+        if offer_count[offer] >= SKU_GROUP_OFFER[offer][0]:
+            # Add to total
+            count = int(offer_count[offer] / SKU_GROUP_OFFER[offer][0])
+            total += count * SKU_GROUP_OFFER[offer][1]
+
+            # Remove related item from highest price
             
+
 
     # Count price
     for sku in sku_count:
@@ -125,3 +133,4 @@ def checkout(skus):
     except ValueError:
         # Add logger
         return -1
+
