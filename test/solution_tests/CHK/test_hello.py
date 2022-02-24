@@ -37,11 +37,17 @@ class TestSum():
         """
         Check prices.
         """
+        assert checkout_solution.checkout("NNN") == 120
+        assert checkout_solution.checkout("NNNM") == 120
+        assert checkout_solution.checkout("NNNMM") == 120 + 15
+
         assert checkout_solution.checkout("HHHHHHHHHH") == 80
         assert checkout_solution.checkout("HHHHH") == 45
         assert checkout_solution.checkout("HHHHHH") == 55
         assert checkout_solution.checkout("FFF") == 20
         assert checkout_solution.checkout("FF") == 20
+        assert checkout_solution.checkout("KK") == 150
+        assert checkout_solution.checkout("KKK") == 150 + 80
         assert checkout_solution.checkout("FFFF") == 30
         assert checkout_solution.checkout("FFFFF") == 40
         assert checkout_solution.checkout("FFFFFF") == 40
@@ -67,6 +73,3 @@ class TestSum():
         
 
         
-
-
-

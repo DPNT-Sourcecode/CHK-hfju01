@@ -37,11 +37,15 @@ SKU_PRICE_SPECIAL = {
     "A": ((5, 50), (3, 20)),
     "B": ((2, 15),),
     "H": ((10, 20), (5, 5)),
+    "K": ((2, 10),),
+    "P": ((5, 50),),
+    "Q": ((3, 10),),
 }
 
 SKU_ITEM_SPECIAL = {
     "E": (2, ("B", 1)),
-    "F": (3, ("F", 1))
+    "F": (3, ("F", 1)),
+    "N": (3, ("M", 1)),
 }
 
 
@@ -104,6 +108,3 @@ def checkout(skus):
     except ValueError:
         # Add logger
         return -1
-
-
-
