@@ -35,12 +35,14 @@ def calculate(sku_count):
     for sku in sku_count:
 
         if sku in SKU_ITEM_SPECIAL and SKU_ITEM_SPECIAL[sku][1][0] in sku_count:
+            remaining_sku = sku_count[sku]
             while (
-                sku_count[sku] >= SKU_ITEM_SPECIAL[sku][0]
+                remaining_sku >= SKU_ITEM_SPECIAL[sku][0]
                 and sku_count[SKU_ITEM_SPECIAL[sku][1][0]]
                 >= SKU_ITEM_SPECIAL[sku][1][1]
             ):
                 sku_count[SKU_ITEM_SPECIAL[sku][1][0]] += -1
+                remaining_sku - SKU_ITEM_SPECIAL[sku][0]
 
     return sku_count[SKU_ITEM_SPECIAL[sku][1][0]]
     for sku in sku_count:
@@ -77,6 +79,7 @@ def checkout(skus):
     except ValueError:
         # Add logger
         return -1
+
 
 
 
