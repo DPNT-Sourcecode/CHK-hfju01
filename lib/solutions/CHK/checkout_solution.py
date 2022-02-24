@@ -23,14 +23,14 @@ SKU = {
     "P": 50,
     "Q": 30,
     "R": 50,
-    "S": 30,
+    "S": 20,
     "T": 20,
     "U": 40,
     "V": 50,
     "W": 20,
-    "X": 90,
-    "Y": 10,
-    "Z": 50,
+    "X": 17,
+    "Y": 20,
+    "Z": 21,
 }
 
 SKU_PRICE_SPECIAL = {
@@ -51,6 +51,10 @@ SKU_ITEM_SPECIAL = {
     "U": (4, ("U", 1)),
 }
 
+SKU_GROUP_OFFER = {
+    (S,T,X,Y,Z) : (3, 45),
+}
+
 
 def calculate(sku_count):
     """
@@ -65,7 +69,6 @@ def calculate(sku_count):
 
     # count free item
     for sku in sku_count:
-
         if sku in SKU_ITEM_SPECIAL and SKU_ITEM_SPECIAL[sku][1][0] in sku_count:
             remaining_sku = sku_count[sku]
             while (
@@ -111,6 +114,7 @@ def checkout(skus):
     except ValueError:
         # Add logger
         return -1
+
 
 
 
