@@ -39,7 +39,8 @@ def calculate(sku_count):
                 and sku_count[SKU_ITEM_SPECIAL[sku][1][0]]
                 >= SKU_ITEM_SPECIAL[sku][1][0]
             ):
-                sku_count[SKU_ITEM_SPECIAL[sku][0]] += -1
+                sku_count[SKU_ITEM_SPECIAL[sku][1][0]] += -1
+                return sku_count[SKU_ITEM_SPECIAL[sku][1][0]]
 
     for sku in sku_count:
         if sku in SKU_PRICE_SPECIAL:
@@ -75,3 +76,4 @@ def checkout(skus):
     except KeyError:
         # Add logger
         return -2
+
