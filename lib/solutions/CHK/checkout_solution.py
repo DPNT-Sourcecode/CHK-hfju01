@@ -33,15 +33,14 @@ def calculate(sku_count):
 
     # count free item
     for sku in sku_count:
+
         if sku in SKU_ITEM_SPECIAL and SKU_ITEM_SPECIAL[sku][1][0] in sku_count:
-            return sku_count[SKU_ITEM_SPECIAL[sku][1][0]]
             while (
                 sku_count[sku] >= SKU_ITEM_SPECIAL[sku][0]
                 and sku_count[SKU_ITEM_SPECIAL[sku][1][0]]
                 >= SKU_ITEM_SPECIAL[sku][1][1]
             ):
                 sku_count[SKU_ITEM_SPECIAL[sku][1][0]] += -1
-        return sku_count[SKU_ITEM_SPECIAL[sku][1][0]]
 
     for sku in sku_count:
         if sku in SKU_PRICE_SPECIAL:
@@ -74,9 +73,10 @@ def checkout(skus):
                 return -1
 
         return calculate(sku_count)
-    except KeyError:
+    except ValueError:
         # Add logger
         return -1
+
 
 
 
