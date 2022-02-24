@@ -93,7 +93,9 @@ def calculate(sku_count):
     for sku in sku_count:
         for offer in SKU_GROUP_OFFER:
             if sku in offer:
-                offer_count +=1
+                if offer not in offer_count:
+                    offer_count[offer] = 0
+                offer_count[offer] +=1
             
 
     # Count price
@@ -123,10 +125,3 @@ def checkout(skus):
     except ValueError:
         # Add logger
         return -1
-
-
-
-
-
-
-
