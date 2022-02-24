@@ -16,8 +16,8 @@ class TestSum():
         """
         Check prices.
         """
-        assert checkout_solution.checkout("AAA") == 130
-
+        assert checkout_solution.checkout("AAAAAAAABB") == 200 + 130 + 45
+        assert checkout_solution.checkout("AAAAAAAABBBEE") == 200 + 130 + 45 + 80
         assert checkout_solution.checkout("EEBB") == 110
         assert checkout_solution.checkout("EEB") == 80
         assert checkout_solution.checkout("EE") == 80
