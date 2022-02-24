@@ -9,6 +9,7 @@ from lib.solutions.CHK import checkout_solution
 | C    | 20    |                        |
 | D    | 15    |                        |
 | E    | 40    | 2E get one B free      |
+| F    | 10    | 2F get one F free      |
 +------+-------+------------------------+
 """
 class TestSum():
@@ -16,6 +17,10 @@ class TestSum():
         """
         Check prices.
         """
+        assert checkout_solution.checkout("FFF") == 20
+        assert checkout_solution.checkout("FF") == 20
+        assert checkout_solution.checkout("FFFF") == 40
+
         assert checkout_solution.checkout("AAAAAAAABB") == 200 + 130 + 45
         assert checkout_solution.checkout("AAAAAAAABBBEE") == 200 + 130 + 45 + 80
         assert checkout_solution.checkout("EEBB") == 110
@@ -38,3 +43,4 @@ class TestSum():
         
 
         
+

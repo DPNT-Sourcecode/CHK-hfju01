@@ -10,6 +10,7 @@ SKU = {
     "C": 20,
     "D": 15,
     "E": 40,
+    "F": 10,
 }
 
 SKU_PRICE_SPECIAL = {
@@ -17,7 +18,10 @@ SKU_PRICE_SPECIAL = {
     "B": ((2, 15),),
 }
 
-SKU_ITEM_SPECIAL = {"E": (2, ("B", 1))}
+SKU_ITEM_SPECIAL = {
+    "E": (2, ("B", 1)),
+    "F": (3, ("F", 1))
+}
 
 
 def calculate(sku_count):
@@ -79,3 +83,4 @@ def checkout(skus):
     except ValueError:
         # Add logger
         return -1
+
