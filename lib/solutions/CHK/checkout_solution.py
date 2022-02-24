@@ -52,7 +52,7 @@ SKU_ITEM_SPECIAL = {
 }
 
 SKU_GROUP_OFFER = {
-    ("Z", "S", "T", "Y", "X") : (3, 45),
+    ("Z", "S", "T", "Y", "X"): (3, 45),
 }
 
 
@@ -95,24 +95,23 @@ def calculate(sku_count):
             if sku in offer:
                 if offer not in offer_count:
                     offer_count[offer] = 0
-                offer_count[offer] +=1
+                offer_count[offer] += sku_count[sku]
+
     for offer in offer_count:
         if offer_count[offer] >= SKU_GROUP_OFFER[offer][0]:
             # Add to total
             count = int(offer_count[offer] / SKU_GROUP_OFFER[offer][0])
             total += count * SKU_GROUP_OFFER[offer][1]
 
-            return offer_count[offer]
             # Remove related item from highest price
             count = count * SKU_GROUP_OFFER[offer][0]
-            
+
             while count > 0:
                 for remove_sku in offer:
                     if sku_count[remove_sku] > 0:
                         sku_count[remove_sku] -= 1
                         break
                 count -= 1
-
 
     # Count price
     for sku in sku_count:
@@ -141,6 +140,7 @@ def checkout(skus):
     except ValueError:
         # Add logger
         return -1
+
 
 
 
