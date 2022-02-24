@@ -108,6 +108,8 @@ def calculate(sku_count):
 
             while count > 0:
                 for remove_sku in offer:
+                    if not remove_sku in sku_count:
+                        break
                     if sku_count[remove_sku] > 0:
                         sku_count[remove_sku] -= 1
                         break
@@ -140,6 +142,7 @@ def checkout(skus):
     except ValueError:
         # Add logger
         return -1
+
 
 
 
