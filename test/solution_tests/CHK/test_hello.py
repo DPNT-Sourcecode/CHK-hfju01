@@ -37,10 +37,14 @@ class TestSum():
         """
         Check prices.
         """
+        assert checkout_solution.checkout("UUU") == 40 * 3
+        assert checkout_solution.checkout("UUUU") == 40 * 3
+        assert checkout_solution.checkout("RRRQQQ") ==  150 + 60
+        assert checkout_solution.checkout("PPPPPQQQ") == 280
+        assert checkout_solution.checkout("RRRQQ") == 150 + 30
         assert checkout_solution.checkout("NNN") == 120
         assert checkout_solution.checkout("NNNM") == 120
         assert checkout_solution.checkout("NNNMM") == 120 + 15
-
         assert checkout_solution.checkout("HHHHHHHHHH") == 80
         assert checkout_solution.checkout("HHHHH") == 45
         assert checkout_solution.checkout("HHHHHH") == 55
