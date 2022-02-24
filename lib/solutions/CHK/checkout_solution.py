@@ -14,7 +14,7 @@ SKU = {
 
 SKU_PRICE_SPECIAL = {
     "A": ((5, 50), (3, 20)),
-    "B": ((2, 15)),
+    "B": ((2, 15),),
 }
 
 SKU_ITEM_SPECIAL = {"E": (2, ("B", 1))}
@@ -42,9 +42,8 @@ def calculate(sku_count):
                 >= SKU_ITEM_SPECIAL[sku][1][1]
             ):
                 sku_count[SKU_ITEM_SPECIAL[sku][1][0]] += -1
-                remaining_sku - SKU_ITEM_SPECIAL[sku][0]
+                remaining_sku -= SKU_ITEM_SPECIAL[sku][0]
 
-    return sku_count[SKU_ITEM_SPECIAL[sku][1][0]]
     for sku in sku_count:
         if sku in SKU_PRICE_SPECIAL and sku_count[sku] > 0:
             remaining_sku = sku_count[sku]
@@ -79,6 +78,7 @@ def checkout(skus):
     except ValueError:
         # Add logger
         return -1
+
 
 
 
