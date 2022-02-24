@@ -52,7 +52,7 @@ SKU_ITEM_SPECIAL = {
 }
 
 SKU_GROUP_OFFER = {
-    (Z, S, T, Y, X) : (3, 45),
+    ("Z", "S", "T", "Y", "X") : (3, 45),
 }
 
 
@@ -89,6 +89,11 @@ def calculate(sku_count):
                     saving += int(remaining_sku / special[0]) * special[1]
                     remaining_sku = remaining_sku % special[0]
 
+    # calculate group saving
+    for sku in sku_count:
+        for offer in SKU_GROUP_OFFER:
+
+
     # Count price
     for sku in sku_count:
         total += SKU[sku] * sku_count[sku]
@@ -116,6 +121,7 @@ def checkout(skus):
     except ValueError:
         # Add logger
         return -1
+
 
 
 
